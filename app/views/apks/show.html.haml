@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @apk.title
+%p
+  %b Desc:
+  = @apk.desc
+%p
+  %b Link:
+  = @apk.link
+%p
+  %b Tag:
+  = @apk.tag
+%p
+  %b Memo:
+  = @apk.memo
+
+= link_to 'Edit', edit_apk_path(@apk)
+\|
+= link_to 'Back', apks_path

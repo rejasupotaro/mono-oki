@@ -1,0 +1,25 @@
+= form_for @apk do |f|
+  - if @apk.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@apk.errors.count, "error")} prohibited this apk from being saved:"
+      %ul
+        - @apk.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :desc
+    = f.text_field :desc
+  .field
+    = f.label :link
+    = f.text_field :link
+  .field
+    = f.label :tag
+    = f.text_field :tag
+  .field
+    = f.label :memo
+    = f.text_field :memo
+  .actions
+    = f.submit 'Save'
