@@ -8,22 +8,22 @@
     %th Title
     %th Desc
     %th Link
-    %th Tag
-    %th Memo
-    %th
-    %th
+    //%th Tag
+    //%th Memo
+    //%th
+    //%th
     %th
 
   - @apks.each do |apk|
     %tr
       %td= apk.title
       %td= apk.desc
-      %td= apk.link
-      %td= apk.tag
-      %td= apk.memo
-      %td= link_to 'Show', apk
-      %td= link_to 'Edit', edit_apk_path(apk)
-      %td= link_to 'Destroy', apk, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'download', apk.link
+      //%td= apk.tag
+      //%td= apk.memo
+      //%td= link_to 'Show', apk
+      //%td= link_to 'Edit', edit_apk_path(apk)
+      %td= link_to '×', apk, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

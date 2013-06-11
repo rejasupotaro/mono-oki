@@ -12,19 +12,10 @@
       = f.text_field :title
     .field
       = f.label :desc
-      = f.text_field :desc
-    .field
-      = f.label :link
-      = f.text_field :link
-    .field
-      = f.label :tag
-      = f.text_field :tag
-    .field
-      = f.label :memo
-      = f.text_field :memo
+      = f.text_area :desc, :class => 'desc_input_area'
     .field
       = f.label "apk"
-      = file_field_tag "apk[file]"
+      = f.file_field :file
   .upload_send
     .actions
       = f.submit 'Save'

@@ -40,7 +40,13 @@ class ApksController < ApplicationController
   # POST /apks
   # POST /apks.json
   def create
-    @apk = Apk.new(params[:apk])
+    file_path = save_apk_file(params[:apk][:file])
+
+    uploaded_apk = params[:apk]
+    uploaded_apk.delete(:file)
+    uploaded_apk[:link] = file_path
+
+    @apk = Apk.new(uploaded_apk)
 
     respond_to do |format|
       if @apk.save
@@ -51,6 +57,13 @@ class ApksController < ApplicationController
         format.json { render json: @apk.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def save_apk_file(apk_file)
+    base_path = Rails.root.to_s + "/public"
+    file_path = "/apks/" + apk_file.original_filename
+    File.binwrite(base_path + file_path, apk_file.read)
+    return file_path
   end
 
   # PUT /apks/1
