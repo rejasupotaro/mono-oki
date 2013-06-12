@@ -4,7 +4,7 @@
   - @apks.each do |apk|
     .well{:data => {:tag => apk.tag}}
       %span.apk_title
-        = apk.title
+        = link_to apk.title, apk
       %span.apk_delete_link
         = link_to '×', apk, :method => :delete, :data => { :confirm => 'Are you sure?' }
       %hr
@@ -12,10 +12,6 @@
         = apk.desc
       %span.apk_download_link.btn{:data => {:id => apk.id, :download_link => apk.link}}
         download
-
-      //= link_to 'Show', apk
-      //= link_to 'Edit', edit_apk_path(apk)
-
 %br
 
 = link_to 'New Apk', new_apk_path
