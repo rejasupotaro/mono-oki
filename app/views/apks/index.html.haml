@@ -1,36 +1,20 @@
 %h1 MonoOki
 
-.well
-  Hello World
-
 .entry_app_list
-  .apk_title
-    = apk.title
-    = apk.desc
-  .apk_download_link
-    = link_to 'download', apk.link
-
-%table
-  %tr
-    %th Title
-    %th Desc
-    %th Link
-    //%th Tag
-    //%th Memo
-    //%th
-    //%th
-    %th
-
   - @apks.each do |apk|
-    %tr
-      %td= apk.title
-      %td= apk.desc
-      %td= link_to 'download', apk.link
-      //%td= apk.tag
-      //%td= apk.memo
-      //%td= link_to 'Show', apk
-      //%td= link_to 'Edit', edit_apk_path(apk)
-      %td= link_to '×', apk, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .well{:data => {:tag => apk.tag}}
+      %span.apk_title
+        = apk.title
+      %span.apk_delete_link
+        = link_to '×', apk, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %hr
+      .apk_desc
+        = apk.desc
+      %span.apk_download_link.btn{:data => {:id => apk.id, :download_link => apk.link}}
+        download
+
+      //= link_to 'Show', apk
+      //= link_to 'Edit', edit_apk_path(apk)
 
 %br
 

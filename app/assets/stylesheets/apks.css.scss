@@ -1,7 +1,28 @@
 .entry_app_list {
-  .apk_title {
+  .well {
+    padding: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+
+    hr {
+      margin: 6px;
+    }
+
+    .apk_title {
+      font-size: 16px;
+    }
+
+    .apk_delete_link {
+      float: right;
+    }
+
+    .apk_download_link {
+      float: right;
+    }
   }
-  .apk_download_link {
+
+  .downloaded {
+    opacity: 0.4
   }
 }
 

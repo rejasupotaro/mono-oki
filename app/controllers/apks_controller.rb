@@ -72,7 +72,7 @@ class ApksController < ApplicationController
     @apk = Apk.find(params[:id])
 
     respond_to do |format|
-      if @apk.update_attributes(params[:apk])
+      if @apk.update_attributes(:tag => params[:tag])
         format.html { redirect_to @apk, notice: 'Apk was successfully updated.' }
         format.json { head :no_content }
       else
